@@ -24,7 +24,7 @@ Namespace SchedulerResourcesManagement
             InitializeComponent()
         End Sub
 
-        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
             ' TODO: This line of code loads data into the 'carsDBDataSet.Cars' table. You can move, or remove it, as needed.
 
             ' TODO: This line of code loads data into the 'carsDBDataSet.CarScheduling' table. You can move, or remove it, as needed.

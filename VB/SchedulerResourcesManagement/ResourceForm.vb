@@ -46,7 +46,7 @@ Namespace SchedulerResourcesManagement
                 Throw New ArgumentNullException("resource")
             End If
 
-            AddHandler Disposed, AddressOf ResourceForm_Disposed
+            AddHandler Me.Disposed, AddressOf ResourceForm_Disposed
 
             Me.editedResourceCopy_Renamed = schedulerStorage.CreateResource(Nothing)
             Me.sourceResource_Renamed = resource

@@ -46,11 +46,11 @@ Namespace SchedulerResourcesManagement
             Me.carsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
             Me.carSchedulingTableAdapter = New SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter()
             Me.carsTableAdapter = New SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarsTableAdapter()
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' schedulerControl1
@@ -137,11 +137,11 @@ Namespace SchedulerResourcesManagement
             Me.Controls.Add(Me.label1)
             Me.Name = "Form1"
             Me.Text = "Form1"
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
 
         End Sub
