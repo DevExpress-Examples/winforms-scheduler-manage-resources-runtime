@@ -25,7 +25,7 @@ namespace SchedulerResourcesManagement {
 
         protected virtual Image DefaultResourceImage { get { return SchedulerResourcesManagement.Properties.Resources.NoImage; } }
 
-        public ResourceForm(Resource resource, SchedulerStorage  schedulerStorage) {
+        public ResourceForm(Resource resource, SchedulerDataStorage  schedulerStorage) {
             if (resource == null)
                 throw new ArgumentNullException("resource");
 

@@ -44,7 +44,7 @@ namespace SchedulerResourcesManagement
             DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
-            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.carSchedulingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carsDBDataSet = new SchedulerResourcesManagement.CarsDBDataSet();
@@ -71,7 +71,7 @@ namespace SchedulerResourcesManagement
             this.schedulerControl1.OptionsView.ResourceHeaders.ImageSizeMode = DevExpress.XtraScheduler.HeaderImageSizeMode.ZoomImage;
             this.schedulerControl1.Size = new System.Drawing.Size(673, 356);
             this.schedulerControl1.Start = new System.DateTime(2008, 10, 19, 0, 0, 0, 0);
-            this.schedulerControl1.Storage = this.schedulerStorage1;
+            this.schedulerControl1.DataStorage = this.schedulerStorage1;
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
             this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
@@ -165,7 +165,7 @@ namespace SchedulerResourcesManagement
 
         private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
         private CarsDBDataSet carsDBDataSet;
-        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerStorage1;
         private SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter carSchedulingTableAdapter;
         private SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarsTableAdapter carsTableAdapter;
         private System.Windows.Forms.Label label1;
