@@ -41,7 +41,7 @@ Namespace SchedulerResourcesManagement
             End Get
         End Property
 
-        Public Sub New(ByVal resource As Resource, ByVal schedulerStorage As SchedulerStorage)
+        Public Sub New(ByVal resource As Resource, ByVal schedulerStorage As SchedulerDataStorage)
             If resource Is Nothing Then
                 Throw New ArgumentNullException("resource")
             End If
