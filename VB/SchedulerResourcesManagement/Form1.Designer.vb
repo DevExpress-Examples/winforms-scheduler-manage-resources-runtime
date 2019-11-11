@@ -39,18 +39,18 @@ Namespace SchedulerResourcesManagement
             Dim timeRuler1 As New DevExpress.XtraScheduler.TimeRuler()
             Dim timeRuler2 As New DevExpress.XtraScheduler.TimeRuler()
             Me.schedulerControl1 = New DevExpress.XtraScheduler.SchedulerControl()
-            Me.schedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
+            Me.schedulerStorage1 = New DevExpress.XtraScheduler.SchedulerDataStorage(Me.components)
             Me.label1 = New System.Windows.Forms.Label()
             Me.carSchedulingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-            Me.carsDBDataSet_Renamed = New SchedulerResourcesManagement.CarsDBDataSet()
+            Me.carsDBDataSet_Renamed = New CarsDBDataSet()
             Me.carsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-            Me.carSchedulingTableAdapter = New SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter()
-            Me.carsTableAdapter = New SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarsTableAdapter()
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.carSchedulingTableAdapter = New CarsDBDataSetTableAdapters.CarSchedulingTableAdapter()
+            Me.carsTableAdapter = New CarsDBDataSetTableAdapters.CarsTableAdapter()
+            CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' schedulerControl1
@@ -66,7 +66,7 @@ Namespace SchedulerResourcesManagement
             Me.schedulerControl1.OptionsView.ResourceHeaders.ImageSizeMode = DevExpress.XtraScheduler.HeaderImageSizeMode.ZoomImage
             Me.schedulerControl1.Size = New System.Drawing.Size(673, 356)
             Me.schedulerControl1.Start = New Date(2008, 10, 19, 0, 0, 0, 0)
-            Me.schedulerControl1.Storage = Me.schedulerStorage1
+            Me.schedulerControl1.DataStorage = Me.schedulerStorage1
             Me.schedulerControl1.TabIndex = 0
             Me.schedulerControl1.Text = "schedulerControl1"
             Me.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1)
@@ -137,11 +137,11 @@ Namespace SchedulerResourcesManagement
             Me.Controls.Add(Me.label1)
             Me.Name = "Form1"
             Me.Text = "Form1"
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.carsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
 
         End Sub
@@ -151,9 +151,9 @@ Namespace SchedulerResourcesManagement
         Private WithEvents schedulerControl1 As DevExpress.XtraScheduler.SchedulerControl
 
         Private carsDBDataSet_Renamed As CarsDBDataSet
-        Private WithEvents schedulerStorage1 As DevExpress.XtraScheduler.SchedulerStorage
-        Private carSchedulingTableAdapter As SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter
-        Private carsTableAdapter As SchedulerResourcesManagement.CarsDBDataSetTableAdapters.CarsTableAdapter
+        Private WithEvents schedulerStorage1 As DevExpress.XtraScheduler.SchedulerDataStorage
+        Private carSchedulingTableAdapter As CarsDBDataSetTableAdapters.CarSchedulingTableAdapter
+        Private carsTableAdapter As CarsDBDataSetTableAdapters.CarsTableAdapter
         Private label1 As System.Windows.Forms.Label
         Private carSchedulingBindingSource As System.Windows.Forms.BindingSource
         Private carsBindingSource As System.Windows.Forms.BindingSource

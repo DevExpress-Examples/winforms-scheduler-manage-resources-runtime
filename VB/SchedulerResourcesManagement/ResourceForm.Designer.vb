@@ -46,7 +46,7 @@ Namespace SchedulerResourcesManagement
             Me.pbImage = New System.Windows.Forms.PictureBox()
             Me.groupBox1 = New System.Windows.Forms.GroupBox()
             Me.lblColor = New System.Windows.Forms.Label()
-            DirectCast(Me.pbImage, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.pbImage, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.groupBox1.SuspendLayout()
             Me.SuspendLayout()
             ' 
@@ -156,7 +156,7 @@ Namespace SchedulerResourcesManagement
             Me.Name = "ResourceForm"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
             Me.Text = "Resource"
-            DirectCast(Me.pbImage, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.pbImage, System.ComponentModel.ISupportInitialize).EndInit()
             Me.groupBox1.ResumeLayout(False)
             Me.ResumeLayout(False)
             Me.PerformLayout()

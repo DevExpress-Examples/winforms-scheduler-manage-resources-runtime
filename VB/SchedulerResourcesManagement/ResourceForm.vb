@@ -41,12 +41,12 @@ Namespace SchedulerResourcesManagement
             End Get
         End Property
 
-        Public Sub New(ByVal resource As Resource, ByVal schedulerStorage As SchedulerStorage)
+        Public Sub New(ByVal resource As Resource, ByVal schedulerStorage As SchedulerDataStorage)
             If resource Is Nothing Then
                 Throw New ArgumentNullException("resource")
             End If
 
-            AddHandler Disposed, AddressOf ResourceForm_Disposed
+            AddHandler Me.Disposed, AddressOf ResourceForm_Disposed
 
             Me.editedResourceCopy_Renamed = schedulerStorage.CreateResource(Nothing)
             Me.sourceResource_Renamed = resource
