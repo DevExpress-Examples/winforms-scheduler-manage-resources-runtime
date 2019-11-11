@@ -1951,7 +1951,7 @@ Namespace CarsDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.Settings.Default.CarsDBConnectionString
+            Me._connection.ConnectionString = Global.My.Settings.Default.CarsDBConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2533,7 +2533,7 @@ Namespace CarsDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.Settings.Default.CarsDBConnectionString
+            Me._connection.ConnectionString = Global.My.Settings.Default.CarsDBConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
