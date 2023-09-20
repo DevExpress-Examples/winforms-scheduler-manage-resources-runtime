@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to manage scheduler resources at runtime
 ' 
 ' This example shows how you can manage scheduler resources at runtime. The
@@ -9,9 +9,10 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E3201
-
 Namespace SchedulerResourcesManagement
-    Partial Public Class ResourceForm
+
+    Partial Class ResourceForm
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -22,14 +23,14 @@ Namespace SchedulerResourcesManagement
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+'#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
@@ -46,7 +47,7 @@ Namespace SchedulerResourcesManagement
             Me.pbImage = New System.Windows.Forms.PictureBox()
             Me.groupBox1 = New System.Windows.Forms.GroupBox()
             Me.lblColor = New System.Windows.Forms.Label()
-            DirectCast(Me.pbImage, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.pbImage), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.groupBox1.SuspendLayout()
             Me.SuspendLayout()
             ' 
@@ -59,6 +60,7 @@ Namespace SchedulerResourcesManagement
             Me.btnOk.TabIndex = 0
             Me.btnOk.Text = "OK"
             Me.btnOk.UseVisualStyleBackColor = True
+            AddHandler Me.btnOk.Click, New System.EventHandler(AddressOf Me.btnOk_Click)
             ' 
             ' button2
             ' 
@@ -95,6 +97,8 @@ Namespace SchedulerResourcesManagement
             Me.tbCaption.Name = "tbCaption"
             Me.tbCaption.Size = New System.Drawing.Size(164, 20)
             Me.tbCaption.TabIndex = 4
+            AddHandler Me.tbCaption.TextChanged, New System.EventHandler(AddressOf Me.tbCaption_TextChanged)
+            AddHandler Me.tbCaption.Validated, New System.EventHandler(AddressOf Me.tbCaption_Validated)
             ' 
             ' btnColor
             ' 
@@ -104,6 +108,7 @@ Namespace SchedulerResourcesManagement
             Me.btnColor.TabIndex = 5
             Me.btnColor.Text = "..."
             Me.btnColor.UseVisualStyleBackColor = True
+            AddHandler Me.btnColor.Click, New System.EventHandler(AddressOf Me.btnColor_Click)
             ' 
             ' openFileDialog1
             ' 
@@ -111,13 +116,14 @@ Namespace SchedulerResourcesManagement
             ' 
             ' pbImage
             ' 
-            Me.pbImage.Image = My.Resources.NoImage
+            Me.pbImage.Image = Global.SchedulerResourcesManagement.Properties.Resources.NoImage
             Me.pbImage.Location = New System.Drawing.Point(5, 18)
             Me.pbImage.Name = "pbImage"
             Me.pbImage.Size = New System.Drawing.Size(230, 116)
             Me.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
             Me.pbImage.TabIndex = 8
             Me.pbImage.TabStop = False
+            AddHandler Me.pbImage.Click, New System.EventHandler(AddressOf Me.pbImage_Click)
             ' 
             ' groupBox1
             ' 
@@ -156,25 +162,33 @@ Namespace SchedulerResourcesManagement
             Me.Name = "ResourceForm"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
             Me.Text = "Resource"
-            DirectCast(Me.pbImage, System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.pbImage), System.ComponentModel.ISupportInitialize).EndInit()
             Me.groupBox1.ResumeLayout(False)
             Me.ResumeLayout(False)
             Me.PerformLayout()
-
         End Sub
 
-        #End Region
+'#End Region
+        Private btnOk As System.Windows.Forms.Button
 
-        Private WithEvents btnOk As System.Windows.Forms.Button
         Private button2 As System.Windows.Forms.Button
+
         Private label1 As System.Windows.Forms.Label
+
         Private label2 As System.Windows.Forms.Label
-        Private WithEvents tbCaption As System.Windows.Forms.TextBox
+
+        Private tbCaption As System.Windows.Forms.TextBox
+
         Private colorDialog1 As System.Windows.Forms.ColorDialog
-        Private WithEvents btnColor As System.Windows.Forms.Button
-        Private WithEvents pbImage As System.Windows.Forms.PictureBox
+
+        Private btnColor As System.Windows.Forms.Button
+
+        Private pbImage As System.Windows.Forms.PictureBox
+
         Private openFileDialog1 As System.Windows.Forms.OpenFileDialog
+
         Private groupBox1 As System.Windows.Forms.GroupBox
+
         Private lblColor As System.Windows.Forms.Label
     End Class
 End Namespace

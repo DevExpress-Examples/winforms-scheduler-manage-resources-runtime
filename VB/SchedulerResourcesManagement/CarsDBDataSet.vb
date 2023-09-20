@@ -1,8 +1,8 @@
-﻿Namespace SchedulerResourcesManagement
+Namespace SchedulerResourcesManagement
 End Namespace
+
 Namespace SchedulerResourcesManagement
 
-
-    Partial Public Class CarsDBDataSet
+    Partial Class CarsDBDataSet
     End Class
 End Namespace
