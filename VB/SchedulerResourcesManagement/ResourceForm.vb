@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to manage scheduler resources at runtime
 ' 
 ' This example shows how you can manage scheduler resources at runtime. The
@@ -9,56 +9,49 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E3201
-
 Imports System
 Imports System.Drawing
 Imports System.Windows.Forms
 Imports DevExpress.XtraScheduler
 
 Namespace SchedulerResourcesManagement
-    Partial Public Class ResourceForm
+
+    Public Partial Class ResourceForm
         Inherits Form
 
+        Private ReadOnly sourceResourceField As Resource = Nothing
 
-        Private ReadOnly sourceResource_Renamed As Resource = Nothing
+        Private ReadOnly editedResourceCopyField As Resource = Resource.Empty
 
-        Private ReadOnly editedResourceCopy_Renamed As Resource = Resource.Empty
-
-        Protected Overridable ReadOnly Property SourceResource() As Resource
+        Protected Overridable ReadOnly Property SourceResource As Resource
             Get
-                Return sourceResource_Renamed
-            End Get
-        End Property
-        Protected Overridable ReadOnly Property EditedResourceCopy() As Resource
-            Get
-                Return editedResourceCopy_Renamed
+                Return sourceResourceField
             End Get
         End Property
 
-        Protected Overridable ReadOnly Property DefaultResourceImage() As Image
+        Protected Overridable ReadOnly Property EditedResourceCopy As Resource
             Get
-                Return My.Resources.NoImage
+                Return editedResourceCopyField
+            End Get
+        End Property
+
+        Protected Overridable ReadOnly Property DefaultResourceImage As Image
+            Get
+                Return Properties.Resources.NoImage
             End Get
         End Property
 
         Public Sub New(ByVal resource As Resource)
-            If resource Is Nothing Then
-                Throw New ArgumentNullException("resource")
-            End If
-
-            AddHandler Disposed, AddressOf ResourceForm_Disposed
-
-            Me.sourceResource_Renamed = resource
+            If resource Is Nothing Then Throw New ArgumentNullException("resource")
+            AddHandler Disposed, New EventHandler(AddressOf ResourceForm_Disposed)
+            sourceResourceField = resource
             InitializeComponent()
-
             UpdateEditedResourceCopy()
             UpdateForm()
         End Sub
 
         Private Sub ResourceForm_Disposed(ByVal sender As Object, ByVal e As EventArgs)
-            If EditedResourceCopy IsNot Nothing Then
-                EditedResourceCopy.Dispose()
-            End If
+            If EditedResourceCopy IsNot Nothing Then EditedResourceCopy.Dispose()
         End Sub
 
         Protected Overridable Sub UpdateEditedResourceCopy()
@@ -70,18 +63,14 @@ Namespace SchedulerResourcesManagement
         Protected Overridable Sub UpdateForm()
             tbCaption.Text = EditedResourceCopy.Caption
             lblColor.BackColor = EditedResourceCopy.Color
-            pbImage.Image = (If(EditedResourceCopy.Image Is Nothing, DefaultResourceImage, EditedResourceCopy.Image))
+            pbImage.Image = If(EditedResourceCopy.Image Is Nothing, DefaultResourceImage, EditedResourceCopy.Image)
             UpdateFormTitle()
         End Sub
 
         Protected Overridable Sub UpdateFormTitle()
             Dim formatArgument As String = String.Empty
-
-            If Not String.IsNullOrEmpty(tbCaption.Text) Then
-                formatArgument = tbCaption.Text & " - "
-            End If
-
-            Me.Text = String.Format("{0}Resource", formatArgument)
+            If Not String.IsNullOrEmpty(tbCaption.Text) Then formatArgument = tbCaption.Text & " - "
+            Text = String.Format("{0}Resource", formatArgument)
         End Sub
 
         Protected Overridable Sub ApplyChanges()
@@ -90,31 +79,30 @@ Namespace SchedulerResourcesManagement
             SourceResource.Image = EditedResourceCopy.Image
         End Sub
 
-        Private Sub btnColor_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnColor.Click
-            If colorDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+        Private Sub btnColor_Click(ByVal sender As Object, ByVal e As EventArgs)
+            If colorDialog1.ShowDialog() = DialogResult.OK Then
                 lblColor.BackColor = colorDialog1.Color
                 EditedResourceCopy.Color = colorDialog1.Color
             End If
         End Sub
 
-        Private Sub pbImage_Click(ByVal sender As Object, ByVal e As EventArgs) Handles pbImage.Click
-            If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+        Private Sub pbImage_Click(ByVal sender As Object, ByVal e As EventArgs)
+            If openFileDialog1.ShowDialog() = DialogResult.OK Then
                 pbImage.Image = Image.FromFile(openFileDialog1.FileName)
                 EditedResourceCopy.Image = pbImage.Image
             End If
         End Sub
 
-        Private Sub tbCaption_Validated(ByVal sender As Object, ByVal e As EventArgs) Handles tbCaption.Validated
+        Private Sub tbCaption_Validated(ByVal sender As Object, ByVal e As EventArgs)
             EditedResourceCopy.Caption = tbCaption.Text
         End Sub
 
-        Private Sub tbCaption_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbCaption.TextChanged
+        Private Sub tbCaption_TextChanged(ByVal sender As Object, ByVal e As EventArgs)
             UpdateFormTitle()
         End Sub
 
-        Private Sub btnOk_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOk.Click
+        Private Sub btnOk_Click(ByVal sender As Object, ByVal e As EventArgs)
             ApplyChanges()
         End Sub
-
     End Class
 End Namespace
