@@ -3,11 +3,23 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E3201)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to manage scheduler resources at runtime
+# WinForms Scheduler - Manage resources at runtime
 
+This example shows how to manage Scheduler resources in code (create, modify, delete selected resource).
 
-<p>This example shows how you can manage scheduler resources at runtime. The Scheduler context menu is modified to include commands to create, modify or delete selected resource. To invoke the menu, right-click any region of SchedulerControl (except appointments). A custom form is invoked that enables you to set caption, color and image for the selected resource.</p>
+The [PopupMenuShowing](https://docs.devexpress.com/WindowsForms/DevExpress.XtraScheduler.SchedulerControl.PopupMenuShowing) event is handled to add custom commands:
 
-<br/>
-
-
+```csharp
+private void schedulerControl1_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e) {
+    if (e.Menu.Id == DevExpress.XtraScheduler.SchedulerMenuItemId.DefaultMenu) {
+        SchedulerMenuItem itemNewResource = new SchedulerMenuItem("New Resource", OnAddResource);
+        SchedulerMenuItem itemEditResource = new SchedulerMenuItem("Edit Resource", OnEditResource);
+        SchedulerMenuItem itemDeleteResource = new SchedulerMenuItem("Delete Resource", OnDeleteResource);
+        int baseIndex = 4;
+        itemNewResource.BeginGroup = true;
+        e.Menu.Items.Insert(baseIndex, itemNewResource);
+        e.Menu.Items.Insert(baseIndex + 1, itemEditResource);
+        e.Menu.Items.Insert(baseIndex + 2, itemDeleteResource);
+    }
+}
+```
